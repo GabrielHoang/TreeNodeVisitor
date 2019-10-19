@@ -1,4 +1,5 @@
 import nodes.*;
+import visitors.EvaluateVisitor;
 import visitors.InFixPrintVisitor;
 import visitors.PostFixPrintVisitor;
 import visitors.PreFixPrintVisitor;
@@ -23,6 +24,7 @@ public class Main {
         InFixPrintVisitor inFixVisitor = new InFixPrintVisitor();
         PostFixPrintVisitor postFixVisitor = new PostFixPrintVisitor();
         PreFixPrintVisitor preFixVisitor = new PreFixPrintVisitor();
+        EvaluateVisitor evaluateVisitor = new EvaluateVisitor();
 
         root.accept(preFixVisitor);
         System.out.println();
@@ -32,5 +34,8 @@ public class Main {
 
         root.accept(postFixVisitor);
         System.out.println();
+
+        root.accept(evaluateVisitor);
+        System.out.println(evaluateVisitor.getValue());
     }
 }
