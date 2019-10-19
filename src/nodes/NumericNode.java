@@ -12,7 +12,7 @@ public class NumericNode implements TreeNode{
 
     @Override
     public void accept(Visitor visitor) {
-
+        visitor.visitNumericNode(this);
     }
 
     @Override

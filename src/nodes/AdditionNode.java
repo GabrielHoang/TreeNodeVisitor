@@ -4,6 +4,7 @@ public class AdditionNode extends BinaryOperatorNode {
 
     public AdditionNode(TreeNode left, TreeNode right) {
         super(left, right);
+        this.label = PLUS;
     }
 
     @Override
@@ -11,8 +12,4 @@ public class AdditionNode extends BinaryOperatorNode {
         return 0;
     }
 
-    @Override
-    public String getLabel() {
-        return null;
-    }
 }
