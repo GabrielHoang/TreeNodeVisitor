@@ -9,7 +9,7 @@ public class InFixPrintVisitor extends Visitor {
         System.out.print(" ( ");
         node.getLeft().accept(this);
 
-        getSign(node);
+        printSign(node);
 
         node.getRight().accept(this);
         System.out.print(" ) ");

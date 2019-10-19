@@ -7,7 +7,7 @@ public class PreFixPrintVisitor extends Visitor {
     public void visitorBinaryOperatorNode(BinaryOperatorNode node) {
 
         System.out.print(" ( ");
-        getSign(node);
+        printSign(node);
         node.getLeft().accept(this);
 
         node.getRight().accept(this);

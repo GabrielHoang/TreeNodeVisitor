@@ -12,7 +12,7 @@ public abstract class Visitor {
         System.out.print(" " + node.getValue() + " ");
     }
 
-    protected void getSign(BinaryOperatorNode node) {
+    protected void printSign(BinaryOperatorNode node) {
         switch (node.getLabel()) {
             case PLUS:
                 System.out.print(PLUS);

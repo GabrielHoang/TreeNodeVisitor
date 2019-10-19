@@ -10,7 +10,7 @@ public class PostFixPrintVisitor extends Visitor {
         node.getLeft().accept(this);
 
         node.getRight().accept(this);
-        getSign(node);
+        printSign(node);
         System.out.print(" ) ");
     }
 }
