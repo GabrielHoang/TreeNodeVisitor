@@ -9,7 +9,7 @@ public class AdditionNode extends BinaryOperatorNode {
 
     @Override
     public int compute(int node1, int node2) {
-        return 0;
+        return node1 + node2;
     }
 
 }

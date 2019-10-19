@@ -2,7 +2,6 @@ package visitors;
 
 import nodes.BinaryOperatorNode;
 import nodes.NumericNode;
-import nodes.TreeNode;
 
 import static nodes.BinaryOperatorNode.*;
 
@@ -31,27 +30,5 @@ public abstract class Visitor {
                 System.out.print(MOD);
                 break;
         }
-    }
-
-    protected int performOperation(int num1, int num2, TreeNode node) {
-        int result = 0;
-        switch (node.getLabel()) {
-            case PLUS:
-                result = num1 + num2;
-                break;
-            case MINUS:
-                result = num1 - num2;
-                break;
-            case DIV:
-                result = num1 / num2;
-                break;
-            case MULT:
-                result = num1 * num2;
-                break;
-            case MOD:
-                result = num1 % num2;
-                break;
-        }
-        return result;
     }
 }

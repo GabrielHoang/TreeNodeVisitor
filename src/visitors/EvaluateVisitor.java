@@ -24,7 +24,7 @@ public class EvaluateVisitor extends Visitor {
         num2 = stack.pop();
         num1 = stack.pop();
 
-        stack.push(performOperation(num1, num2, node));
+        stack.push(node.compute(num1, num2));
     }
 
     @Override
