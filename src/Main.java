@@ -5,6 +5,12 @@ import visitors.PostFixPrintVisitor;
 import visitors.PreFixPrintVisitor;
 
 public class Main {
+
+    static InFixPrintVisitor inFixVisitor = new InFixPrintVisitor();
+    static PostFixPrintVisitor postFixVisitor = new PostFixPrintVisitor();
+    static PreFixPrintVisitor preFixVisitor = new PreFixPrintVisitor();
+    static EvaluateVisitor evaluateVisitor = new EvaluateVisitor();
+    
     public static void main(String[] args) {
 
         NumericNode one = new NumericNode(1);
@@ -21,21 +27,26 @@ public class Main {
         BinaryOperatorNode div1 = new DivisionNode(mult1, six);
         BinaryOperatorNode root = new ModuloNode(add2, div1);
 
-        InFixPrintVisitor inFixVisitor = new InFixPrintVisitor();
-        PostFixPrintVisitor postFixVisitor = new PostFixPrintVisitor();
-        PreFixPrintVisitor preFixVisitor = new PreFixPrintVisitor();
-        EvaluateVisitor evaluateVisitor = new EvaluateVisitor();
+        testVisitors(root);
 
-        root.accept(preFixVisitor);
+        Parser parser = new Parser();
+        TreeNode rootNodeParsed = parser.parse("(  (  (  7 % 4  ) - 1  ) * (  (  10 / 2  ) + 13  )  )");
+
+        testVisitors(rootNodeParsed);
+    }
+
+    private static void testVisitors(TreeNode rootNode) {
+
+        rootNode.accept(preFixVisitor);
         System.out.println();
 
-        root.accept(inFixVisitor);
+        rootNode.accept(inFixVisitor);
         System.out.println();
 
-        root.accept(postFixVisitor);
+        rootNode.accept(postFixVisitor);
         System.out.println();
 
-        root.accept(evaluateVisitor);
-        System.out.println(evaluateVisitor.getValue());
+        rootNode.accept(evaluateVisitor);
+        System.out.println("Expression value: " + evaluateVisitor.getValue() + "\n");
     }
 }
