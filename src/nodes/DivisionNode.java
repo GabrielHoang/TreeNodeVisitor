@@ -9,6 +9,6 @@ public class DivisionNode extends BinaryOperatorNode {
 
     @Override
     public int compute(int node1, int node2) {
-        return node1 - node2;
+        return node1 / node2;
     }
 }
